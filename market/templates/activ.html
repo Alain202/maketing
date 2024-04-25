@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>home-market</title>
+        <link rel="stylesheet" href="{% static 'cssss/bootstrap.css' %}" >
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" >
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" >
+    </head>
+<body>
+{% if user.is_authenticated %}
+    
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/"><blinck>LIKE-MARKET</blinck></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'reseaux' %}">re-sociaux</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">vente</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'retrait' %}">retrait</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">activation</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">compte</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link "  href="{% url 'logout' %}">se deconnecter</a>&nbsp;
+              </li>
+            </ul>
+          </div> 
+        </div>
+      </nav>
+      Hello, {{ user.first_name }}
+      <br><br>
+      <h4>l'activation se fait deux etapes</h4>
+      <H5>premiere etape </H5>
+      <h6>faire le depot de 1000 Fcfa dans l'un des numeros suivants:</h6>
+      <table>
+        <tr>
+          <td>NUMERO MTM MOBILE MONEY:   </td>
+          <td>683906064</td>
+        </tr>
+        <tr>
+          <td>NOM DU COMPTE :</td>
+          <td>LIEUCHE EMMANUEL</td>
+        </tr>
+      </table>
+      <br><br><br>
+      <table>
+        <tr>
+          <td>NUMERO ORANGE MONEY:   </td>
+          <td>698317692</td>
+        </tr>
+        <tr>
+          <td>NOM DU COMPTE :</td>
+          <td>TCHOUANTI LIEUCHE ALAIN </td>
+        </tr>
+        
+      </table>
+      <BR><br><br>
+        <table>
+          <tr>
+            <td>NUMERO EXPRESS UNION MOBILE MONEY:   </td>
+            <td>698317692</td>
+          </tr>
+          <tr>
+            <td>NOM DU COMPTE :</td>
+            <td>TCHOUANTI LIEUCHE ALAIN </td>
+          </tr>
+          
+        </table>
+        <BR><br><br>
+        <h5>deuxieme etape </h5>
+        <h6>appuyer sur confirmer la transaction et remplir conformement le formulaire et valider</h6>
+        <a href="{% url 'confirm' %}">confirmer la transaction</a>&nbsp;
+       <br><br>
+      
+     
+{% else %}
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><blinck>LIKE-MARKET</blinck></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'user_registration' %}">s'inscrire</a>&nbsp;
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'login' %}">se connecter</a>&nbsp;
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+{% endif %}
+{% include 'footer.html' %}
+</body>
+</html>

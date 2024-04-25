@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ma page</title>
+        <link rel="stylesheet" href="{% static 'cs/bootstrap.css' %}" >
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" >
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" >
+    </head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/"><blinck>LIKE-MARKET</blinck></a>
+          <li class="nav-item">
+          <a class="nav-link " href="{% url 'login' %}">se connecter</a>&nbsp;
+        </li>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </li>
+        
+    
+        </div>
+    </nav>
+    <center>
+<form action="" method="POST">
+{% csrf_token %}
+<fieldset>
+    <legend>veuiller entrer avec soin les informations</legend>
+<label>prenom:</label>
+<input type="text" name="first_name" placeholder="First Name" required><br><br>
+<label>nom:</label>
+<input type="text" name="last_name" placeholder="Last Name" required><br><br>
+<label>nom d'utilisateur:</label>
+<input type="text" name="user_name" placeholder="User Name" required><br><br>
+<label>email:</label>
+<input type="email" name="email" placeholder="email" required><br><br>
+<label>telephone:</label>
+<input type="text" id="mobile" name="mobile" placeholder="Mobile" required><br><br>
+<label>mot de passe:</label>
+<input type="password" name="password1" placeholder="Password"required><br><br>
+<label>confirmer mot de passe:</label>
+<input type="password" name="password2" placeholder="Confirm Password" required><br><br>
+<input type="hidden" name="solde", value ="0">
+<input type="submit" value="valider">
+<input type="reset" value="effacer">
+</fieldset>
+</form>
+<br><br>
+<h6>si vous avez deja un compte,<font color="#000fff"><a class="nav-link "  href="{% url 'login' %}">se connecter</a></font>  </h6>
+</center>
+<div>
+    <script>
+     var phone= document.getElementById("mobile");
+     user.employee.phone=phone;
+    </script>
+{% for message in messages %}
+<h3>
+{{ message }}</h3>
+{% endfor %}
+</div>
+</body>

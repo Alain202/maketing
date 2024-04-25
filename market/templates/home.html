@@ -1,0 +1,171 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>home-market</title>
+        <link rel="stylesheet" href="{% static 'cssss/bootstrap.css' %}" >
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" >
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" >
+    </head>
+<body>
+{% if user.is_authenticated %}
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/"><blinck><font color="#0fff0f">LIKE-MARKET</font></blinck></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'reseaux' %}"><font color="#000fff">re-sociaux</font></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="javascript:alerte()"><font color="#000fff">vente</font></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'retrait' %}"><font color="#000fff">retrait</font></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'activ' %}"><font color="#000fff">activation</font></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'compte' %}"><font color="#000fff">compte</font></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="javascript:alerte()"><font color="#000fff">affilier-group</font></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link "  href="{% url 'logout' %}"><font color="#000fff">se deconnecter</font></a>&nbsp;
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <script>
+        function alerte(){
+          alert("section bloquer, elle sera ouverte apres l'ouverture du marcher");
+          
+        }
+
+       </script> 
+     <center> Hello, {{ user.username }}
+      Hello, {{ user.email }}<br>
+      
+      {% if user.employee.solde < 100 %}
+      <h6>{{ user.username }} <font color="#f00f0f">votre compte est inactif veuiller recharger pour activer et eviter la suspension</font><a href="{% url 'activ' %}">activer mon compte </a></h6>
+      {% else %}
+      <h6> <font color="#f00f0f">compte activer</font></h6>
+      <h6 >solde : <font color="#ffff00">{{ user.employee.solde }} Fcfa</font></h6>
+      <h6> parrainage : <font color="pink">{{ user.employee.parain }} personnes</font> </h6>
+      <h6>votre lien de parrainage est :<a href="http://like-market.pythonanywhere.com/user_registration/id={{ user.id }} " > http://like-market.pythonanywhere.com/user_registration/id={{ user.id }} </a></h6>
+      {% endif %}
+      {% if user.id == 1 %}
+       <h6>controle de gestion <a href="{% url 'gestion' %}">actualiser la base de donnees</a></h6>
+      {% else %}
+       <h6></h6>
+      {% endif %}
+
+
+    </center>
+{% else %}
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><blinck>LIKE-MARKET</blinck></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="http://like-market.pythonanywhere.com/user_registration/id=1">s'inscrire</a>&nbsp;
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'login' %}">se connecter</a>&nbsp;
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+{% endif %}
+
+<center>
+  <h6> <font color="#f00f0f">cette version est periodique a l'enregistrement, la version authentique sera mis a jour lors du lancement du marché</font></h6>
+  <h6> <font color="#f00f0f">date Prévue  pour le lancement du marché: </font>01-JUIN-2024</h6>
+  <h6> <font color="#f00f0f">en attendent maximiser vos gains en parrainant beaucoup de personnes possible</font></h6>
+  <h6> <font color="#f00f0f">NB: l'enregistrement a la plate forme prend fin dès le lancement du marché  </font></h6>
+  <blinck><font color="red">important a lire</font></blinck>
+   <table border="2 px">
+        <thead>
+        <th colspan="2">veuiller lire attentivement ses informations corcernant le fontionnement du site</th>
+        </thead>
+    <tr>   
+        <td>
+          <section>
+            <h4>Qui sont nous ?</h4>
+            LIKE-MARKET celons nos accords avec nos bayeurs de visibilité du monde,
+            achètera les likes des seaux sociaux des utilisateurs et transférer 
+            dans le site des bayeurs pour orgmenter leurs visibilité dans le monde 
+            des affaires. les resaux sociaux pris en compte sont: FACEBOOK, LIKES,TIKTOK
+            WhATHSAP, TELEGRAM, SUPERGRAM.
+            Les utilisateur de TELEGRAM, WATHSAP,SUPERGRAM eyant des groups de plus de 
+            500 abonnées  actifs signerons des contrats numériquement avec notre plate 
+            forme pour être notre suppléant.
+            <h4>comment gagner de l'argent ? </h4>
+            Apres les inscriptions et activation des utlisateurs,
+            <h6>10f par like pour les photos</h6>
+            <h6>15f pour les vidéos de moins de 30 seconde</h6>
+            <h6>20f pour les vidéos de moins de 2 minutes</h6>
+            <h6>25f pour les vidéos de plus de 2 minutes</h6>
+            <h5>pour les groupe(15 jours) ,</h5>
+            <h6>1000f pour un groupe de 100--300 abonnées </h6>
+            <h6>1500f pour un groupe de 300--600 abonnées </h6>
+            <h6>2000f pour un groupe de 600--1000 abonnées </h6>
+            <h6>3500f pour un groupe de 1000--2000 abonnées </h6>
+            <h6>5000f pour un groupe de 2000--5000 abonnées </h6>
+            <h6>10000f pour un groupe de plus de 5000 abonnées </h6>
+          </section>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h4>Comments vendre ? </h4>
+            <h5>pour les likes</h5>
+            les contrats avec nos partenaires nous donne le droit de 'lecture(read)' sur
+            nos partenaires comportant des likes.
+            par compte Facebook par exemple on fait la somme de tous les likes des photos
+            ainsi que les vidéos et vous entrer votre nombre de likes a vendre, Après
+            validations votre compte sera créditer du montant associe. mème principe pour 
+            les autres réseaux.
+            
+            <h5>pour les groupe</h5>
+            Il y'aurra pour chaque groupe que vous avez affilier un représentants de notre plate forme pour 
+            s'assurer que les membres du groupe sont actif. a la fin du mois après 
+            confirmation du représentant, le montant associe sera créditer automatiquement
+            sur votre compte.
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h4>comment faire le retrait</h4>
+            la plate forme est lie au operateur tels que 
+            Mobile Money, Orange Money, EU , UBA, Ecobank. vous ferer le retrait 
+            avec l'operateur de votre choix a la rubrique 'retrait'. 
+            <h6>pour chaque inscription avec votre lien que vous obtener apres l'activation
+                votre compte sera credite de 100f et 200f de plus apres l'activation.
+                <blinck> le retrait sera disponible apres le lancement du marcher</blinck>
+            </h6>
+        </td>
+    </tr>
+    <tr>
+        <td>Le nombre de like disponible en vente est le nombre de like actuel moin le nombre total de like deja vendue</td>
+    </tr>
+   </table>
+</center>
+{% include 'footer.html' %}
+</body>
+</html>
+
+

@@ -1,0 +1,17 @@
+
+<!-- Material form is just a materialize thing for django forms -->
+<div class="col s12 m8 offset-m2">
+    <div class="card">
+    <div class="card-content">
+    <h2 class="flow-text">Update your information</h2>
+<form action="" method="POST" class="padding">
+    {% csrf_token %} 
+    <label>telephone:</label>
+    <input type="text" id="mobile" name="mobile" placeholder="Mobile" required><br><br>
+    <input type="submit" value="valider">
+    <input type="reset" value="effacer">
+</form>
+</center>
+    </div>
+    </div>
+    </div>
